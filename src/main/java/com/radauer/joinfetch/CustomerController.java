@@ -67,7 +67,7 @@ public class CustomerController {
 
     public void getAllAsStreamOrdered() {
 
-        log.info("Get all as streams:");
+        log.info("Get all as streams ordered:");
         repository.getAllAsStreamOrdered().forEach((customer -> log.info(customer.toString())));
     }
 
