@@ -32,7 +32,6 @@ public class CustomerController {
             repository.save(new Customer("User " + i));
         }
 
-
         for (char c = 'A'; c < 'E'; c++) {
             log.info("Load all Customers and add product " + c);
             log.info("-------------------------------");
@@ -40,10 +39,7 @@ public class CustomerController {
                 customer.getProducts().add(new Product("Product " + c + " for " + customer.getName()));
                 log.info(customer.toString());
             }
-
         }
-
-
     }
 
 
@@ -51,6 +47,12 @@ public class CustomerController {
 
         log.info("Get all as list:");
         repository.getAllAsList().forEach((customer -> log.info(customer.toString())));
+    }
+
+    public void getAllAsListDistinct() {
+
+        log.info("Get all as list distinct:");
+        repository.getAllAsListDistinct().forEach((customer -> log.info(customer.toString())));
     }
 
     public void getAllAsListOrdered() {
@@ -69,6 +71,13 @@ public class CustomerController {
 
         log.info("Get all as streams ordered:");
         repository.getAllAsStreamOrdered().forEach((customer -> log.info(customer.toString())));
+    }
+
+    public void getAllAsListByQuery() {
+
+        log.info("Get all as list by query:");
+        repository.getAllAsListByQuery().forEach((customer -> log.info(customer.toString())));
+
     }
 
 

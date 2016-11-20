@@ -9,10 +9,13 @@ import java.util.stream.Stream;
 /**
  * Created by Andreas on 19.11.2016.
  */
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
+public interface CustomerRepository extends CrudRepository<Customer, Long>, CustomerRepositoryCustom {
 
     @Query("select c from Customer c join fetch c.products")
     List<Customer> getAllAsList();
+
+    @Query("select distinct c from Customer c join fetch c.products")
+    List<Customer> getAllAsListDistinct();
 
     @Query("select c from Customer c join fetch c.products order by c.id")
     List<Customer> getAllAsListOrdered();
